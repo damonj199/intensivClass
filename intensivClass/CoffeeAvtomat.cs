@@ -11,12 +11,12 @@ namespace intensivClass
     public class CoffeeAvtomat
     {
         public string Name { get; set; } 
-        public int Balance { get; private set; }
+        public int Balance { get; set; }
         public DrinksRecept[] Drinks { get; set; }
-        public int RemainingWater { get; private set; }
-        public int RemainingMilk { get; private set; }
-        public int RemainingCoffee { get; private set; }
-        public int RemainingSugar { get; private set; }
+        public int RemainingWater { get; set; }
+        public int RemainingMilk { get; set; }
+        public int RemainingCoffee { get; set; }
+        public int RemainingSugar { get; set; }
         public int Profit { get; private set; }
         public int UserBalance { get; private set; }
 
@@ -78,7 +78,9 @@ namespace intensivClass
         public void GetChange()
         {
             Console.WriteLine($"Вот Ваша сдача {UserBalance}рублей.");
-
+            Balance -= UserBalance;
+            Profit += UserBalance;
+            UserBalance = 0;
         }
     }
 
